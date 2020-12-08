@@ -1,9 +1,11 @@
 <template>
   <section class="popular-restaurants-wrapper">
     <div>
-        <ul>
-            <li :key="rest.id" v-for="rest in popularRestaurants">{{rest.name}}</li>
-        </ul>
+      <ul>
+        <li :key="rest.id" v-for="rest in popularRestaurants">
+          {{ rest.name }}
+        </li>
+      </ul>
     </div>
   </section>
 </template>
@@ -15,7 +17,6 @@ import { fetchRestaurants } from "@/services/firebaseSer";
 @Component({})
 export default class PopularRestaurants extends Vue {
   private popularRestaurants: Restaurant[] = [];
-
 }
 </script>
 
