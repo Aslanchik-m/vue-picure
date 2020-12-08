@@ -1,0 +1,13 @@
+$WHITE: white;
+$BLACK: black;
+$LIGHT_ORANGE: #faf5eb;
+$ORANGE: #f8e8c7;
+$GREY: #f8f8f8;
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: local("HelveticaNeue"),
+    url("/assets/fonts/HelveticaNeue.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
