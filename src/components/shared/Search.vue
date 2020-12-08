@@ -28,10 +28,8 @@ export default class Search extends Vue {
   width: 511px;
   height: 38px;
   padding: 6px 4px 4px 10px;
-  margin-right: 28px;
   border-radius: 4px;
   border: solid 0.5px $BLACK;
-  background-color: rgba(255, 255, 255, 0.11);
   display: flex;
   flex-direction: row-reverse;
   transition: all 0.5s ease-in-out;
@@ -45,6 +43,7 @@ export default class Search extends Vue {
     position: relative;
     width: 100%;
     height: 34px;
+    background: none;
     &:focus {
       outline: none;
     }
@@ -67,7 +66,7 @@ export default class Search extends Vue {
   transition: all 0.5s ease-in-out;
   .search-input {
     opacity: 0.8;
-    font-size: 18px;
+    font-size: 18px !important;
     letter-spacing: 1.29px;
     border: none;
     position: relative;

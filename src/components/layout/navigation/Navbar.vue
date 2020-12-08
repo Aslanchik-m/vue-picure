@@ -36,7 +36,6 @@ nav {
   width: 100vw;
   border-bottom: 0.2px solid #979797;
   height: 53px;
-  margin-bottom: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
