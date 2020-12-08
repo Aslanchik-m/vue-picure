@@ -1,20 +1,42 @@
 <template>
   <footer>
-    <ul>
-      <li>Terms</li>
-      <li>Privacy</li>
-      <li>Lalal</li>
-    </ul>
+    <div class="footer-links">
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+      <a href="#">Lalal</a>
+    </div>
   </footer>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
 export default {};
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/theme.scss";
+
 footer {
   width: 100%;
+  /* CHANGE THIS LATER */
+  position: fixed;
+  /* ^^^ */
+  bottom: 0;
+  height: 94px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .footer-links {
+    display: flex;
+    a {
+      text-decoration: none;
+      color: $BLACK;
+      &:hover {
+        opacity: 0.8;
+      }
+      &:not(:last-child) {
+        margin-right: 45px;
+      }
+    }
+  }
 }
 </style>

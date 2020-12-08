@@ -12,19 +12,7 @@
       </div>
     </div>
     <div class="right-nav">
-      <div class="search-wrapper">
-        <input
-          type="text"
-          name="search"
-          class="search-input"
-          placeholder="Search for restaurant cuisine, chef"
-        />
-        <img
-          class="search-icon"
-          src="@/assets/icons/search-icon.svg"
-          alt="search"
-        />
-      </div>
+      <Search :isNav="true" />
       <img class="user-icon" src="@/assets/icons/user-icon.svg" alt="user" />
       <img class="bag-icon" src="@/assets/icons/bag-icon.svg" alt="bag" />
     </div>
@@ -33,7 +21,12 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-@Component
+import Search from "@/components/shared/Search.vue";
+@Component({
+  components: {
+    Search
+  }
+})
 export default class Navbar extends Vue {}
 </script>
 
@@ -92,27 +85,6 @@ nav {
     justify-content: center;
     align-items: center;
     margin-right: 123px;
-    .search-wrapper {
-      width: 415px;
-      padding: 1px 4px 1px 16px;
-      margin-right: 28px;
-      border-radius: 4px;
-      border: solid 0.5px $BLACK;
-      background-color: rgba(255, 255, 255, 0.11);
-      display: flex;
-      .search-input {
-        border: none;
-        position: relative;
-        width: 100%;
-        height: 29px;
-        &:focus {
-          outline: none;
-        }
-      }
-      .search-icon {
-        margin-right: 7px;
-      }
-    }
     .user-icon {
       width: 23px;
       height: 23px;
