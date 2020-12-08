@@ -17,9 +17,6 @@ export default {};
 
 footer {
   width: 100%;
-  /* CHANGE THIS LATER */
-  position: fixed;
-  /* ^^^ */
   bottom: 0;
   height: 94px;
   display: flex;
