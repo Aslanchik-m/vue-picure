@@ -28,7 +28,7 @@ export default class Main extends Vue {}
 .hero-wrapper {
   height: 696px;
   width: 100%;
-  background-image: url("../../assets/img/hero-picture@2x.png");
+  background-image: url("/assets/img/hero-picture@2x.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -2,7 +2,7 @@
   <section class="chef-section-wrapper">
     <h4 class="section-title">CHEF OF THE WEEK :</h4>
     <div class="chef-main">
-      <img src="@/assets/img/yossi-shitrit.png" alt="chef yossi shitrit" />
+      <img src="/assets/img/yossi-shitrit.png" alt="chef yossi shitrit" />
       <p class="chef-description">
         Chef Yossi Shitrit has been living and breathing his culinary dreams for
         more than two decades, including running the kitchen in his first

@@ -12,7 +12,7 @@
       </p>
       <div class="download-buttons">
         <div class="button">
-          <img src="@/assets/icons/apple-icon.svg" alt="apple icon" />
+          <img src="/assets/icons/apple-icon.svg" alt="apple icon" />
           <div class="button-text">
             <span>Download on the</span>
             <span class="main-text">App Store</span>
@@ -21,7 +21,7 @@
         <div class="button">
           <img
             class="google"
-            src="@/assets/icons/play-icon.svg"
+            src="/assets/icons/play-icon.svg"
             alt="google play icon"
           />
           <div class="button-text">
@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <img class="logo" src="@/assets/img/about-logo.png" alt="epicure logo" />
+    <img class="logo" src="/assets/img/about-logo.png" alt="epicure logo" />
   </section>
 </template>
 

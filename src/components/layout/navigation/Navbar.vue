@@ -1,9 +1,9 @@
 <template>
   <nav>
     <div class="left-nav">
-      <img class="hamburger" src="@/assets/icons/hamburger.svg" alt="menu" />
+      <img class="hamburger" src="/assets/icons/hamburger.svg" alt="menu" />
       <div class="epicure-logo">
-        <img src="@/assets/img/logo@2x.png" alt="epicure logo" />
+        <img src="/assets/img/logo@2x.png" alt="epicure logo" />
         <span class="logo-text">EPICURE</span>
       </div>
       <div class="main-links">
@@ -13,8 +13,8 @@
     </div>
     <div class="right-nav">
       <Search :isNav="true" />
-      <img class="user-icon" src="@/assets/icons/user-icon.svg" alt="user" />
-      <img class="bag-icon" src="@/assets/icons/bag-icon.svg" alt="bag" />
+      <img class="user-icon" src="/assets/icons/user-icon.svg" alt="user" />
+      <img class="bag-icon" src="/assets/icons/bag-icon.svg" alt="bag" />
     </div>
   </nav>
 </template>

@@ -3,15 +3,15 @@
     <h4 class="section-title">THE MEANING OF OUR ICONS :</h4>
     <div class="icons">
       <div class="icon-wrapper">
-        <img src="@/assets/icons/spicy-icon.svg" alt="spicy" />
+        <img src="/assets/icons/spicy-icon.svg" alt="spicy" />
         <span class="icon-title">Spicy</span>
       </div>
       <div class="icon-wrapper">
-        <img src="@/assets/icons/vegetarian-icon.svg" alt="vegetarian" />
+        <img src="/assets/icons/vegetarian-icon.svg" alt="vegetarian" />
         <span class="icon-title">Vegetarian</span>
       </div>
       <div class="icon-wrapper">
-        <img src="@/assets/icons/vegan-icon.svg" alt="vegan" />
+        <img src="/assets/icons/vegan-icon.svg" alt="vegan" />
         <span class="icon-title">Vegan</span>
       </div>
     </div>

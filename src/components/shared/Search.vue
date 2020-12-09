@@ -6,11 +6,7 @@
       class="search-input"
       placeholder="Search for restaurant cuisine, chef"
     />
-    <img
-      class="search-icon"
-      src="@/assets/icons/search-icon.svg"
-      alt="search"
-    />
+    <img class="search-icon" src="/assets/icons/search-icon.svg" alt="search" />
   </div>
 </template>
 
