@@ -46,6 +46,7 @@ export default {};
   width: 100%;
   height: 526px;
   opacity: 0.9;
+  margin-top: 117px;
   background-color: #fafafa;
   display: flex;
   justify-content: space-evenly;

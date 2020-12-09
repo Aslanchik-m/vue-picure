@@ -2,25 +2,52 @@
   <section class="chef-section-wrapper">
     <h4 class="section-title">CHEF OF THE WEEK :</h4>
     <div class="chef-main">
-      <img src="/assets/img/yossi-shitrit.png" alt="chef yossi shitrit" />
-      <p class="chef-description">
-        Chef Yossi Shitrit has been living and breathing his culinary dreams for
-        more than two decades, including running the kitchen in his first
-        restaurant, the fondly-remembered Violet, located in Moshav Udim.
-        Shitrit's creativity and culinary acumen born of long experience are
-        expressed in the every detail of each and every dish.
+      <Card :item="composeForCard(chefs[0])" v-if="chefs.length" />
+      <p class="chef-description" v-if="chefs.length">
+        {{ chefs[0].description }}
       </p>
     </div>
-    <div class="chef-restaurants-placeholder">
-      Hi im chef-restaurants-placeholder
-    </div>
+    <ChefRestaurants
+      :restaurants="chefs[0].restaurants"
+      :chefName="chefs[0].name"
+      v-if="chefs.length"
+    />
   </section>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-@Component({})
-export default class ChefSection extends Vue {}
+import { fetchChefs } from "@/services/firebaseSer";
+import Card from "@/components/shared/Card.vue";
+import { Chef } from "@/models/Chef";
+import ChefRestaurants from "@/components/main/ChefRestaurants.vue";
+
+@Component({
+  components: {
+    Card,
+    ChefRestaurants
+  }
+})
+export default class ChefSection extends Vue {
+  private chefs: Chef[] = [];
+  created() {
+    fetchChefs().then(snap => {
+      const data = snap.docs.map(doc => {
+        const chef = { ...doc.data(), id: doc.id };
+        return chef;
+      }) as Chef[];
+      console.log(data);
+      this.chefs = data;
+    });
+  }
+  private composeForCard(chef: Chef) {
+    const cardObj = {
+      name: chef.name,
+      img: chef.img
+    };
+    return cardObj;
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -31,7 +58,7 @@ export default class ChefSection extends Vue {}
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
   .section-title {
     font-size: 30px;
     font-weight: 100;
@@ -42,11 +69,34 @@ export default class ChefSection extends Vue {}
   .chef-main {
     display: flex;
     justify-content: center;
-    align-items: center;
-    img {
+    .card {
       width: 433px;
       height: 337px;
       margin-right: 69px;
+      ::v-deep .card-image {
+        height: 338px;
+        img {
+          width: 433px;
+          object-fit: contain;
+        }
+      }
+      ::v-deep .card-content {
+        position: relative;
+        .card-title {
+          width: 433px;
+          height: 78px;
+          background-color: rgba(255, 255, 255, 0.8);
+          position: absolute;
+          top: -30px;
+          z-index: 3;
+          font-size: 40px;
+          letter-spacing: 1.43px;
+          color: $BLACK;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
     }
     .chef-description {
       width: 540px;
@@ -54,15 +104,11 @@ export default class ChefSection extends Vue {}
       font-size: 25px;
       font-weight: 100;
       line-height: 1.2;
+      margin-top: 0;
       letter-spacing: 1.08px;
       text-align: justify;
       color: $BLACK;
     }
-  }
-  .chef-restaurants-placeholder {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
   }
 }
 </style>

@@ -59,8 +59,6 @@ export default class PopularRestaurants extends Vue {
     justify-content: center;
     align-items: center;
     .card {
-      width: 360px;
-      height: 357px;
       &:not(:last-child) {
         margin-right: 11px;
       }
