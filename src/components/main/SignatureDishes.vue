@@ -30,7 +30,6 @@ export default class SignatureDishes extends Vue {
         const dish = { ...doc.data(), id: doc.id };
         return dish;
       }) as Dish[];
-      console.log(data);
       this.dishes = data;
     });
   }

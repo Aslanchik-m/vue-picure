@@ -1,20 +1,69 @@
 <template>
-  <div :class="isNav ? 'search-nav-wrapper' : 'search-hero-wrapper'">
+  <form
+    autoComplete="off"
+    :class="isNav ? 'search-nav-wrapper' : 'search-hero-wrapper'"
+  >
+    <img
+      class="x-button"
+      src="/assets/icons/black-x.svg"
+      alt="clear input"
+      v-if="searchParam.length"
+      @click="clearInput"
+    />
     <input
       type="text"
       name="search"
       class="search-input"
       placeholder="Search for restaurant cuisine, chef"
+      v-model="searchParam"
     />
     <img class="search-icon" src="/assets/icons/search-icon.svg" alt="search" />
-  </div>
+    <Suggestions
+      v-if="searchResults.length && searchParam.length"
+      :restaurants="searchResults"
+    />
+  </form>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-@Component
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
+import _ from "lodash";
+
+import { searchRestaurants } from "@/services/firebaseSer";
+import { Restaurant } from "@/models/Restaurant";
+import Suggestions from "./Suggestions.vue";
+
+@Component({
+  components: {
+    Suggestions
+  }
+})
 export default class Search extends Vue {
   @Prop() private isNav!: boolean;
+  private searchResults: Restaurant[] = [];
+  private searchParam = "";
+
+  // Search method
+  private handleSearch() {
+    // Check if search param is not empty send an api call to search db
+    if (this.searchParam.length) {
+      searchRestaurants(this.searchParam).then(snap => {
+        const data = snap.docs.map(doc => {
+          const restaurant = { ...doc.data(), id: doc.id };
+          return restaurant;
+        }) as Restaurant[];
+        this.searchResults = data;
+      });
+    }
+  }
+  // Clear input
+  private clearInput() {
+    this.searchParam = "";
+  }
+
+  // Set up a watcher that fires a debounce on the search function every time searchParam changes
+  @Watch("searchParam")
+  public debounceSearch = _.debounce(this.handleSearch, 500);
 }
 </script>
 
@@ -29,6 +78,17 @@ export default class Search extends Vue {
   display: flex;
   flex-direction: row-reverse;
   transition: all 0.5s ease-in-out;
+  position: relative;
+  .x-button {
+    height: 18px;
+    object-fit: contain;
+    margin-right: 10px;
+    margin-top: 9px;
+    &:hover{
+      cursor:pointer;
+      
+    }
+  }
   .search-input {
     opacity: 0.53;
     font-size: 22px;
@@ -50,6 +110,9 @@ export default class Search extends Vue {
     margin: 0 20px 0 0;
     object-fit: contain;
   }
+  .suggestion-box {
+    width: 515px;
+  }
 }
 .search-nav-wrapper {
   width: 415px;
@@ -60,6 +123,17 @@ export default class Search extends Vue {
   background-color: rgba(255, 255, 255, 0.11);
   display: flex;
   transition: all 0.5s ease-in-out;
+  position: relative;
+  .x-button {
+    height: 14px;
+    object-fit: contain;
+    margin-right: 10px;
+    margin-top: 9px;
+    &:hover{
+      cursor:pointer;
+      
+    }
+  }
   .search-input {
     opacity: 0.8;
     font-size: 18px !important;
@@ -74,6 +148,10 @@ export default class Search extends Vue {
   }
   .search-icon {
     margin-right: 7px;
+  }
+  .suggestion-box {
+    width: 420px;
+    top: 2.1rem;
   }
 }
 </style>
