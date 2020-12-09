@@ -28,5 +28,6 @@ body {
   padding: 0;
   background-color: $WHITE;
   font-family: HelveticaNeue;
+  width: 100%;
 }
 </style>

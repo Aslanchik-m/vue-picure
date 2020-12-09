@@ -10,7 +10,7 @@
         {{ item.description }}
       </p>
       <div class="card-bottom-section" v-if="item.price">
-        <img v-if="item.icon" :src="item.icon" alt="icon" />
+        <img class="icon" v-if="item.icon" :src="item.icon" alt="icon" />
         <div class="price-section">
           <div class="line"></div>
           <div class="price-wrapper">

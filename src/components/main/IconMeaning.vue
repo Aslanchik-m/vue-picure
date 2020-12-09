@@ -34,6 +34,7 @@ export default class IconMeaning extends Vue {}
   align-items: center;
   height: 265px;
   opacity: 0.9;
+  margin-top: 87px;
   background-color: #fafafa;
   .section-title {
     margin-top: 0;

@@ -36,7 +36,6 @@ export default class ChefSection extends Vue {
         const chef = { ...doc.data(), id: doc.id };
         return chef;
       }) as Chef[];
-      console.log(data);
       this.chefs = data;
     });
   }
@@ -58,7 +57,6 @@ export default class ChefSection extends Vue {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100vw;
   .section-title {
     font-size: 30px;
     font-weight: 100;

@@ -2,6 +2,7 @@
   <div class="main">
     <HeroSection />
     <PopularRestaurants />
+    <SignatureDishes />
     <IconMeaning />
     <ChefSection />
     <AboutUs />
@@ -15,6 +16,7 @@ import PopularRestaurants from "@/components/main/PopularRestaurants.vue";
 import IconMeaning from "@/components/main/IconMeaning.vue";
 import ChefSection from "@/components/main/ChefSection.vue";
 import AboutUs from "@/components/main/AboutUs.vue";
+import SignatureDishes from "@/components/main/SignatureDishes.vue";
 
 @Component({
   components: {
@@ -22,7 +24,8 @@ import AboutUs from "@/components/main/AboutUs.vue";
     PopularRestaurants,
     IconMeaning,
     ChefSection,
-    AboutUs
+    AboutUs,
+    SignatureDishes
   }
 })
 export default class Main extends Vue {}

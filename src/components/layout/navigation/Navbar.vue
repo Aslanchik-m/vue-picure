@@ -33,7 +33,7 @@ export default class Navbar extends Vue {}
 <style scoped lang="scss">
 @import "@/assets/theme.scss";
 nav {
-  width: 100vw;
+  width: 100%;
   border-bottom: 0.2px solid #979797;
   height: 53px;
   display: flex;
