@@ -1,9 +1,9 @@
 <template>
   <footer>
     <div class="footer-links">
-      <a href="#">Terms</a>
-      <a href="#">Privacy</a>
-      <a href="#">Lalal</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Term of Use</a>
+      <a href="#">Privacy Policy</a>
     </div>
   </footer>
 </template>

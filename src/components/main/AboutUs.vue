@@ -19,7 +19,11 @@
           </div>
         </div>
         <div class="button">
-          <img src="@/assets/icons/play-icon.svg" alt="google play icon" />
+          <img
+            class="google"
+            src="@/assets/icons/play-icon.svg"
+            alt="google play icon"
+          />
           <div class="button-text">
             <span>Get it on</span>
             <span class="main-text">Google Play</span>
@@ -44,7 +48,7 @@ export default {};
   opacity: 0.9;
   background-color: #fafafa;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   .about-us {
     .section-title {
@@ -69,6 +73,8 @@ export default {};
         height: 52.8px;
         border-radius: 9.6px;
         border: solid 0.6px $BLACK;
+        display: flex;
+        justify-content: space-between;
         &:not(:last-child) {
           margin-right: 15.1px;
         }
@@ -76,17 +82,24 @@ export default {};
           cursor: pointer;
         }
         img {
-          height: 25px;
+          height: 29.6px;
           object-fit: contain;
+          margin-left: 10.9px;
+          margin-top: 10px;
+        }
+        .google {
+          margin-left: 15px;
         }
         .button-text {
           display: flex;
           flex-direction: column;
           justify-content: center;
+          align-items: center;
           font-size: 13.2px;
           letter-spacing: 1.29px;
           text-align: center;
           color: $BLACK;
+          margin-right: 17.7px;
           .main-text {
             font-size: 16.8px;
           }
