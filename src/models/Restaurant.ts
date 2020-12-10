@@ -7,8 +7,8 @@ export interface Restaurant {
   img: string;
   dishes?: Dish[];
   chef?: string;
-  openTime?: string;
-  closeTime?: string;
-  dateAdded?: firebase.firestore.FieldValue;
-  favorites?: number;
+  openTime: string;
+  closeTime: string;
+  dateAdded: firebase.firestore.Timestamp;
+  favorites: number;
 }

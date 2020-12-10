@@ -2,12 +2,17 @@
   <nav>
     <div class="left-nav">
       <img class="hamburger" src="/assets/icons/hamburger.svg" alt="menu" />
-      <div class="epicure-logo">
+      <a href="/" class="epicure-logo">
         <img src="/assets/img/logo@2x.png" alt="epicure logo" />
         <span class="logo-text">EPICURE</span>
-      </div>
+      </a>
       <div class="main-links">
-        <a href="#">Restaurants</a>
+        <a
+          href="/restaurants"
+          :class="{ active: $route.name === 'Restaurants' }"
+        >
+          Restaurants
+        </a>
         <a href="#">Chefs</a>
       </div>
     </div>
@@ -49,6 +54,7 @@ nav {
     .epicure-logo {
       display: flex;
       align-items: center;
+      text-decoration: none;
       img {
         width: 33px;
         height: 33px;
@@ -76,6 +82,11 @@ nav {
         &:not(:last-child) {
           margin-right: 28px;
         }
+      }
+      .active {
+        align-self: center;
+        padding-bottom: 1.8px;
+        border-bottom: solid 1.8px rgba(222, 146, 0, 0.9);
       }
     }
   }

@@ -1,12 +1,12 @@
 <template>
-  <div class="main">
+  <main>
     <HeroSection />
     <PopularRestaurants />
     <SignatureDishes />
     <IconMeaning />
     <ChefSection />
     <AboutUs />
-  </div>
+  </main>
 </template>
 
 <script lang="ts">

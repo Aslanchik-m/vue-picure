@@ -16,7 +16,7 @@ import { Restaurant } from "@/models/Restaurant";
 import { firstCharToUppercase } from "@/utils/pipes";
 import { Component, Prop, Vue } from "vue-property-decorator";
 
-@Component
+@Component({})
 export default class Suggestions extends Vue {
   @Prop() private restaurants!: Restaurant[];
 

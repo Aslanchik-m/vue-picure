@@ -69,6 +69,7 @@ export default class Search extends Vue {
 
 <style scoped lang="scss">
 @import "@/assets/theme.scss";
+
 .search-hero-wrapper {
   width: 511px;
   height: 38px;
@@ -84,9 +85,8 @@ export default class Search extends Vue {
     object-fit: contain;
     margin-right: 10px;
     margin-top: 9px;
-    &:hover{
-      cursor:pointer;
-      
+    &:hover {
+      cursor: pointer;
     }
   }
   .search-input {
@@ -129,9 +129,8 @@ export default class Search extends Vue {
     object-fit: contain;
     margin-right: 10px;
     margin-top: 9px;
-    &:hover{
-      cursor:pointer;
-      
+    &:hover {
+      cursor: pointer;
     }
   }
   .search-input {
