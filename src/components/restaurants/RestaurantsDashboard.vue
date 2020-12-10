@@ -34,26 +34,29 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { namespace } from "vuex-class";
 import Card from "@/components/shared/Card.vue";
 import { Restaurant } from "@/models/Restaurant";
-import { fetchRestaurants } from "@/services/firebaseSer";
 import { compareTime, compareDate } from "@/utils/pipes";
+
+const restaurantsNamespace = namespace("Restaurants");
+
 @Component({
   components: { Card }
 })
 export default class RestaurantsDashboard extends Vue {
-  private restaurants: Restaurant[] = [];
   private filterParam: "all" | "new" | "popular" | "open" = "all";
 
   created() {
-    fetchRestaurants().then(snap => {
-      const data = snap.docs.map(doc => {
-        const restaurant = { ...doc.data(), id: doc.id };
-        return restaurant;
-      }) as Restaurant[];
-      this.restaurants = data;
-    });
+    this.fetchAllRestaurants();
   }
+
+  @restaurantsNamespace.State
+  public restaurants!: Restaurant[];
+
+  @restaurantsNamespace.Action
+  public fetchAllRestaurants!: () => void;
+
   // Computed restaurants property that filters based on filterParam
   get filteredRestaurants() {
     if (this.filterParam === "new") {

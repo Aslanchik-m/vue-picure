@@ -7,13 +7,13 @@
         <span class="logo-text">EPICURE</span>
       </a>
       <div class="main-links">
-        <a
-          href="/restaurants"
+        <router-link
+          to="/restaurants"
           :class="{ active: $route.name === 'Restaurants' }"
         >
           Restaurants
-        </a>
-        <a href="#">Chefs</a>
+        </router-link>
+        <a to="/chefs">Chefs</a>
       </div>
     </div>
     <div class="right-nav">

@@ -17,10 +17,12 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { fetchChefs } from "@/services/firebaseSer";
+import { namespace } from "vuex-class";
 import Card from "@/components/shared/Card.vue";
 import { Chef } from "@/models/Chef";
 import ChefRestaurants from "@/components/main/ChefRestaurants.vue";
+
+const chefsNamespace = namespace("Chefs");
 
 @Component({
   components: {
@@ -29,16 +31,16 @@ import ChefRestaurants from "@/components/main/ChefRestaurants.vue";
   }
 })
 export default class ChefSection extends Vue {
-  private chefs: Chef[] = [];
   created() {
-    fetchChefs().then(snap => {
-      const data = snap.docs.map(doc => {
-        const chef = { ...doc.data(), id: doc.id };
-        return chef;
-      }) as Chef[];
-      this.chefs = data;
-    });
+    this.getChefs();
   }
+
+  @chefsNamespace.State
+  private chefs!: Chef[];
+
+  @chefsNamespace.Action
+  public getChefs!: () => void;
+
   private composeForCard(chef: Chef) {
     const cardObj = {
       name: chef.name,

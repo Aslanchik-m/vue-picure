@@ -13,9 +13,11 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import Card from "@/components/shared/Card.vue";
-import { fetchSignatureDishes } from "@/services/firebaseSer";
+import { namespace } from "vuex-class";
 import { Dish } from "@/models/Dish";
 import { firstCharToUppercase } from "@/utils/pipes";
+
+const dishesNamespace = namespace("Dishes");
 
 @Component({
   components: {
@@ -23,16 +25,16 @@ import { firstCharToUppercase } from "@/utils/pipes";
   }
 })
 export default class SignatureDishes extends Vue {
-  private dishes: Dish[] = [];
   created() {
-    fetchSignatureDishes().then(snap => {
-      const data = snap.docs.map(doc => {
-        const dish = { ...doc.data(), id: doc.id };
-        return dish;
-      }) as Dish[];
-      this.dishes = data;
-    });
+    this.getDishes();
   }
+
+  @dishesNamespace.State
+  public dishes!: Dish[];
+
+  @dishesNamespace.Action
+  public getDishes!: () => void;
+
   private upperCaseify(name: string) {
     return firstCharToUppercase(name);
   }
